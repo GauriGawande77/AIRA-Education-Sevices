@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { Zap, Layers, ShieldCheck, Cpu, Crown } from 'lucide-react';
-import Hero3DCanvas from './Hero3DCanvas';
+﻿import React, { useState } from 'react';
+import { Rocket, BookOpen, Star, Users, MapPin } from 'lucide-react';
+import FloatingHeroImages from './FloatingHeroImages';
+import './HeroContent.css';
 
 export default function Hero({ theme, onSoundPlay }) {
   const [active3DMode, setActive3DMode] = useState('robotics');
 
   const modes = [
-    { id: 'robotics', label: '🤖 Robotics' },
-    { id: 'ai', label: '🧠 AI Neural' },
-    { id: 'drone', label: '✈️ Drone' },
-    { id: 'quantum', label: '💎 STEM Orb' }
+    { id: 'robotics', label: 'ðŸ¤– Robotics' },
+    { id: 'ai', label: 'ðŸ§  AI Neural' },
+    { id: 'drone', label: 'âœˆï¸ Drone' },
+    { id: 'quantum', label: 'ðŸ’Ž STEM Orb' }
   ];
 
   const handleModeChange = (modeId) => {
@@ -22,86 +23,53 @@ export default function Hero({ theme, onSoundPlay }) {
       <div className="container">
         <div className="hero-grid">
           {/* Left Column: Copy & Actions */}
-          <div className="hero-content">
-            <div className="hero-luxury-tag">
-              <Crown size={16} style={{ color: 'var(--accent-gold)' }} />
-              <span>Premier AI & Robotics Education • NEP 2020 Aligned</span>
+          <div className="hero-content custom-hero-left">
+            <div className="hero-tag-yellow">
+              <span className="dot"></span> NEP 2020 ALIGNED • STEM EDUCATION
             </div>
 
-            <h1 className="hero-title">
-              Empower Future Innovators with <span className="gradient-text">Hands-On AI</span> & Robotics
+            <h1 className="hero-title-new">
+              Build the <span className="text-purple">Future</span><br />
+              with<br />
+              <span className="text-purple">AI • IoT • Robotics</span>
             </h1>
 
-            <p className="hero-desc">
-              Transform classroom theory into breakthrough engineering. Discover precision-crafted STEM kits, turnkey ATL school lab solutions, and experiential learning tailored for India's young leaders.
+            <p className="hero-desc-new">
+              AIRA empowers students with practical skills through hands-on, project-based learning. We bridge theory and real-world application — preparing students for Industry 4.0 careers.
             </p>
 
-            <div className="hero-cta-group">
-              <a href="#kits" className="btn btn-luxury-gold btn-lg">
-                <Zap size={18} />
-                <span>Explore Tech Kits (INR ₹)</span>
+            <div className="hero-cta-group-new">
+              <a href="#benefits" className="btn-blue-glow">
+                <Rocket size={18} />
+                <span>Student Benefits</span>
               </a>
-              <a href="#simulator" className="btn btn-luxury-outline btn-lg">
-                <Layers size={18} />
-                <span>Launch 3D Lab Simulation</span>
+              <a href="#nep2020" className="btn-outline-blue">
+                <BookOpen size={18} />
+                <span>NEP 2020</span>
               </a>
             </div>
 
-            <div className="hero-stats-row">
-              <div className="stat-item">
-                <div className="stat-number">15,000<span>+</span></div>
-                <div className="stat-label">Students Mentored</div>
+            <div className="hero-bottom-stats">
+              <div className="stat-item-new">
+                <Star size={16} className="text-blue" fill="currentColor" />
+                <span>4.9 Google Rating</span>
               </div>
-              <div className="stat-item">
-                <div className="stat-number">500<span>+</span></div>
-                <div className="stat-label">ATL Labs Deployed</div>
+              <div className="stat-divider"></div>
+              <div className="stat-item-new">
+                <Users size={16} className="text-blue" />
+                <span>150+ Students</span>
               </div>
-              <div className="stat-item">
-                <div className="stat-number">98<span>%</span></div>
-                <div className="stat-label">Practical Success Score</div>
+              <div className="stat-divider"></div>
+              <div className="stat-item-new">
+                <MapPin size={16} className="text-blue" />
+                <span>Maharashtra, India</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: 3D Canvas with Luxury Studio Lighting */}
+          {/* Right Column: Floating Images Layout */}
           <div className="hero-visual">
-            <div className="hero-3d-wrapper">
-              <Hero3DCanvas activeMode={active3DMode} theme={theme} />
-
-              {/* Floating HUD Badges */}
-              <div className="hud-float-badge hud-badge-1">
-                <div className="hud-icon">
-                  <ShieldCheck size={22} />
-                </div>
-                <div>
-                  <div className="hud-title">NEP 2020 Aligned</div>
-                  <div className="hud-sub">CBSE & ICSE Certified</div>
-                </div>
-              </div>
-
-              <div className="hud-float-badge hud-badge-2">
-                <div className="hud-icon">
-                  <Cpu size={22} />
-                </div>
-                <div>
-                  <div className="hud-title">ESP32 & Neural AI Core</div>
-                  <div className="hud-sub">Live 3D Telemetry</div>
-                </div>
-              </div>
-
-              {/* 3D Mode Selector Overlay */}
-              <div className="canvas-controls-overlay" role="group" aria-label="3D Model Selection">
-                {modes.map((m) => (
-                  <button
-                    key={m.id}
-                    className={`mode-btn ${active3DMode === m.id ? 'active' : ''}`}
-                    onClick={() => handleModeChange(m.id)}
-                  >
-                    {m.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <FloatingHeroImages />
           </div>
         </div>
       </div>

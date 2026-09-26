@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Plus, Minus } from 'lucide-react';
 
 export default function FAQ({ onSoundPlay }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
-      q: 'What age groups are AIRA educational kits suitable for?',
-      a: 'Our kits are organized by tier: Junior STEM kits are crafted for Grade 3-6 (Ages 8-11), Intermediate Robotics & IoT kits are suited for Grade 6-10 (Ages 11-15), and Advanced AI, Drones, & 3D Prototyping kits serve Grade 10-12, college students, and makers.'
+      q: 'What age groups are AIRA programs designed for?',
+      a: 'Our programs are carefully designed for students across different age groups, primarily focusing on ages 8 to 18 (Grades 3 to 12). We offer graded learning paths from basic STEM concepts for juniors to advanced AI and Robotics for senior students.'
     },
     {
-      q: 'Do students need prior coding or soldering experience?',
-      a: 'No prior experience is necessary. All beginner and intermediate kits are 100% solder-free with modular quick-connect jumper cables. We provide intuitive block coding environments that smoothly bridge into standard Python and C++.'
+      q: 'Are AIRA programs aligned with NEP 2020?',
+      a: 'Yes, absolutely! All our curriculums and hardware kits are 100% aligned with the National Education Policy (NEP) 2020 guidelines, emphasizing experiential learning, 21st-century skills, and multidisciplinary technology education.'
     },
     {
-      q: 'What is your delivery timeframe and shipping policy across India?',
-      a: 'We provide express door-to-door delivery across all major Indian PIN codes within 2-5 business days. Orders above ₹999 qualify for 100% FREE express shipping.'
+      q: 'What is the teaching methodology at AIRA?',
+      a: "We follow a 'Learn by Building' methodology. Instead of traditional theoretical lectures, students engage directly with hardware kits and software tools to build real-world prototypes, fostering critical thinking and problem-solving skills."
     },
     {
-      q: 'What warranty and part replacement support is provided?',
-      a: 'Every AIRA kit comes with a 6-Month Hassle-Free Replacement Warranty on all electronic microcontrollers, sensors, and actuators. Institutional school labs receive a 1-Year comprehensive maintenance plan.'
+      q: 'Does AIRA provide industry-recognized certificates?',
+      a: 'Yes, students who successfully complete our advanced courses and capstone projects receive industry-recognized certificates that add significant value to their academic portfolios and future career prospects.'
+    },
+    {
+      q: 'How can my school partner with AIRA?',
+      a: 'Schools can partner with us to set up turnkey ATL & STEM labs. We provide comprehensive hardware packages, continuous mentor support, teacher training workshops, and a structured curriculum. Contact our team to get a custom institutional proposal.'
+    },
+    {
+      q: 'Where is AIRA located and do you conduct workshops?',
+      a: 'We are headquartered in India and we conduct hands-on workshops, training sessions, and school partnerships nationwide. Our delivery and support network spans across all major cities and educational hubs.'
     }
   ];
 
@@ -29,26 +37,44 @@ export default function FAQ({ onSoundPlay }) {
   };
 
   return (
-    <section className="section-padding" id="faq" style={{ background: 'var(--bg-secondary)' }}>
-      <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Got Questions?</span>
-          <h2 className="section-title">
-            Frequently Asked <span className="gradient-text">Questions</span>
+    <section className="section-padding" id="faq" style={{ position: 'relative', overflow: 'hidden' }}>
+      
+      {/* Background network particles like the image */}
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0, bottom: 0,
+        opacity: 0.2,
+        pointerEvents: 'none',
+        backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 40%)',
+        zIndex: 0
+      }}></div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <div className="section-header" style={{ marginBottom: '3rem' }}>
+          <h2 className="section-title" style={{ fontSize: '3rem', fontWeight: 800 }}>
+            Frequently Asked <span style={{ color: '#2563eb' }}>Questions</span>
           </h2>
-          <p className="section-subtitle">
-            Everything you need to know about our kits, delivery across India, and school partnerships.
+          <p className="section-subtitle" style={{ fontSize: '1.1rem' }}>
+            Everything you need to know about AIRA programs.
           </p>
         </div>
 
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
                 className="luxury-card"
-                style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }}
+                style={{ 
+                  padding: '0', 
+                  overflow: 'hidden', 
+                  cursor: 'pointer',
+                  borderRadius: '16px',
+                  background: 'var(--bg-card, #1C202B)',
+                  border: '1px solid var(--border-subtle, #30363D)',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
+                }}
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
@@ -56,10 +82,10 @@ export default function FAQ({ onSoundPlay }) {
                     width: '100%',
                     background: 'transparent',
                     border: 'none',
-                    padding: '22px 26px',
+                    padding: '24px 28px',
                     textAlign: 'left',
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '1.1rem',
+                    fontFamily: 'inherit',
+                    fontSize: '1.15rem',
                     fontWeight: 700,
                     color: 'var(--text-main)',
                     display: 'flex',
@@ -69,17 +95,25 @@ export default function FAQ({ onSoundPlay }) {
                   }}
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown
-                    size={20}
-                    style={{
-                      color: 'var(--accent-gold)',
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.3s ease'
-                    }}
-                  />
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: isOpen ? 'rgba(37, 99, 235, 0.15)' : 'rgba(37, 99, 235, 0.05)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    {isOpen ? (
+                      <Minus size={18} style={{ color: '#2563eb' }} />
+                    ) : (
+                      <Plus size={18} style={{ color: '#2563eb' }} />
+                    )}
+                  </div>
                 </button>
                 {isOpen && (
-                  <div style={{ padding: '0 26px 22px', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                  <div style={{ padding: '0 28px 24px', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.7' }}>
                     {faq.a}
                   </div>
                 )}

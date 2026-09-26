@@ -1,0 +1,161 @@
+﻿.learning-journey-grid-section {
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Background floating particles for network effect */
+.network-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+}
+
+.learning-journey-header {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 4rem;
+}
+
+.lj-label {
+  display: inline-block;
+  background-color: rgba(37, 99, 235, 0.15);
+  color: #2563eb;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeSlideDown 0.6s ease-out forwards;
+}
+
+.lj-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-main, #ffffff);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.lj-title span {
+  color: #2563eb;
+}
+
+.lj-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted, #8B949E);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lj-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1100px) {
+  .lj-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .lj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lj-card {
+  background-color: var(--bg-card, #1C202B);
+  border: 1px solid var(--border-subtle, #30363D);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+.lj-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.lj-card:nth-child(1) { animation-delay: 0.2s; }
+.lj-card:nth-child(2) { animation-delay: 0.4s; }
+.lj-card:nth-child(3) { animation-delay: 0.6s; }
+.lj-card:nth-child(4) { animation-delay: 0.8s; }
+
+/* The colored badges for numbers */
+.lj-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Matching the orange theme - using shades and gradients of orange/gold */
+.lj-card:nth-child(1) .lj-badge { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+.lj-card:nth-child(2) .lj-badge { background: linear-gradient(135deg, #484ddf, #5757dd); }
+.lj-card:nth-child(3) .lj-badge { background: linear-gradient(135deg, #1d4ed8, #2563eb); }
+.lj-card:nth-child(4) .lj-badge { background: linear-gradient(135deg, #4b3fcf, #4c53de); }
+
+.lj-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main, #ffffff);
+  margin-bottom: 1rem;
+}
+
+.lj-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted, #8B949E);
+  line-height: 1.6;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

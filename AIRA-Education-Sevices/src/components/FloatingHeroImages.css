@@ -1,0 +1,148 @@
+﻿.floating-hero-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-main-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 65%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-img-main {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.float-img {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 6px solid white;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.float-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.float-img-1 {
+  width: 35%;
+  aspect-ratio: 1;
+  top: 5%;
+  left: 0%;
+  z-index: 1;
+  animation: float 7s ease-in-out infinite reverse;
+}
+
+.float-img-2 {
+  width: 30%;
+  aspect-ratio: 1;
+  bottom: 0%;
+  right: 5%;
+  z-index: 3;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.float-badge {
+  position: absolute;
+  background: white;
+  border-radius: 16px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  z-index: 4;
+}
+
+.float-badge .badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.float-badge .badge-icon.purple { background: #f3f0ff; }
+.float-badge .badge-icon.yellow { background: #fff8e1; }
+
+.badge-text .title {
+  font-weight: 700;
+  color: #1a1a2e;
+  font-size: 0.95rem;
+}
+.badge-text .sub {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.float-badge-ai {
+  top: 15%;
+  right: 0%;
+  animation: float 6.5s ease-in-out infinite 0.5s;
+}
+
+.float-badge-projects {
+  bottom: 20%;
+  left: -5%;
+  animation: float 5.5s ease-in-out infinite 1.5s;
+}
+
+.float-badge-stem {
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6e56cf;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  padding: 10px 24px;
+  gap: 8px;
+  animation: float 7s ease-in-out infinite 0.2s;
+}
+
+.stem-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-badge-stem {
+  animation-name: float-center;
+}
+
+@keyframes float-center {
+  0% { transform: translate(-50%, 0px); }
+  50% { transform: translate(-50%, -10px); }
+  100% { transform: translate(-50%, 0px); }
+}
+
+/* network background */
+.network-bg {
+  position: absolute;
+  inset: -20%;
+  background-image: radial-gradient(circle at center, #3b82f6 2px, transparent 2px);
+  background-size: 80px 80px;
+  opacity: 0.15;
+  z-index: 0;
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Cpu, ShoppingCart, Volume2, VolumeX, Sparkles, Sun, Moon, Crown } from 'lucide-react';
 
 export default function Navbar({ cartCount, onOpenCart, theme, onToggleTheme, soundEnabled, onToggleSound }) {
@@ -17,26 +18,23 @@ export default function Navbar({ cartCount, onOpenCart, theme, onToggleTheme, so
       <nav className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           {/* Brand Logo */}
-          <a href="#hero" className="brand-logo">
-            <div className="brand-icon-box">
-              <Cpu size={24} />
-              <span className="brand-badge-pulse" />
-            </div>
-            <div>
-              <span className="brand-title">AIRA <span className="gradient-text">EDUCATION</span></span>
-              <span className="brand-subtitle">Services & STEM Labs</span>
-            </div>
-          </a>
+          <Link to="/" className="brand-logo" style={{ textDecoration: 'none' }}>
+            <img 
+              src="/aira-logo.png" 
+              alt="AIRA Education Logo" 
+              style={{ height: '90px', width: 'auto', objectFit: 'contain' }} 
+            />
+          </Link>
 
           {/* Nav Links */}
           <ul className="nav-links">
-            <li><a href="#hero" className="nav-link">Home</a></li>
-            <li><a href="#pillars" className="nav-link">Pillars</a></li>
-            <li><a href="#kits" className="nav-link">STEM Kits</a></li>
-            <li><a href="#simulator" className="nav-link">3D Virtual Lab</a></li>
-            <li><a href="#journey" className="nav-link">Learning Path</a></li>
-            <li><a href="#institutions" className="nav-link">Schools & ATL</a></li>
-            <li><a href="#faq" className="nav-link">FAQ</a></li>
+            <li><Link to="/" className="nav-link">Home</Link></li>
+            <li><Link to="/about" className="nav-link">About</Link></li>
+            <li><Link to="/nep2020" className="nav-link">NEP 2020</Link></li>
+            <li><Link to="/courses" className="nav-link">COURSES</Link></li>
+            <li><Link to="/product" className="nav-link">PRODUCT</Link></li>
+            <li><Link to="/gallery" className="nav-link">GALLERY</Link></li>
+            <li><Link to="/contact" className="nav-link">CONTACT US</Link></li>
           </ul>
 
           {/* Actions: Theme Toggle, Sound Toggle, Cart Drawer, Demo CTA */}
@@ -51,15 +49,6 @@ export default function Navbar({ cartCount, onOpenCart, theme, onToggleTheme, so
               {theme === 'luxury-light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
-            {/* Sound Toggle */}
-            <button
-              className="icon-button"
-              onClick={onToggleSound}
-              title={soundEnabled ? 'Mute Sound FX' : 'Enable Sound FX'}
-              aria-label="Toggle Sound"
-            >
-              {soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
-            </button>
 
             {/* Shopping Cart Drawer Trigger */}
             <button
@@ -72,11 +61,16 @@ export default function Navbar({ cartCount, onOpenCart, theme, onToggleTheme, so
               {cartCount > 0 && <span className="cart-count-badge">{cartCount}</span>}
             </button>
 
+            {/* Login CTA */}
+            <Link to="/login" className="btn btn-sm" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent-gold)', color: 'var(--text-main)' }}>
+              <span>Login</span>
+            </Link>
+
             {/* Book Demo CTA */}
-            <a href="#institutions" className="btn btn-luxury-gold btn-sm">
+            <Link to="/contact" className="btn btn-luxury-gold btn-sm">
               <span>Book Free Demo</span>
               <Sparkles size={15} />
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

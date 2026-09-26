@@ -1,0 +1,128 @@
+.custom-hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.hero-tag-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-tertiary);
+  color: var(--accent-gold-dark);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.hero-tag-yellow .dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+}
+
+.hero-title-new {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.text-blue {
+  color: #2563eb;
+}
+
+.text-purple {
+  color: #5524c7;
+}
+
+.hero-desc-new {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-cta-group-new {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-blue-glow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-blue-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+}
+
+.btn-outline-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-outline-blue:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.hero-bottom-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 12px 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-item-new {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.stat-divider {
+  width: 4px;
+  height: 4px;
+  background-color: var(--text-dim);
+  border-radius: 50%;
+}

@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Pillars from './components/Pillars';
-import ProductCatalog from './components/ProductCatalog';
-import VirtualLab from './components/VirtualLab';
-import LearningJourney from './components/LearningJourney';
-import InstitutionalSection from './components/InstitutionalSection';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Nep2020 from './pages/Nep2020';
+import Courses from './pages/Courses';
+import Product from './pages/Product';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
+import LoginPage from './LoginPage';
 
 export default function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  
   // Theme State: 'luxury-light' (default) or 'cyber-dark'
   const [theme, setTheme] = useState('luxury-light');
 
@@ -193,59 +196,64 @@ export default function App() {
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="app-root">
-      {/* Ambient Luxury Background Orbs */}
-      <div className="luxury-ambient-bg" aria-hidden="true">
-        <div className="luxury-orb orb-gold-1" />
-        <div className="luxury-orb orb-sapphire-2" />
-        <div className="luxury-orb orb-emerald-3" />
-        <div className="luxury-mesh-overlay" />
-      </div>
+    <BrowserRouter>
+      <div className="app-root">
+        {/* Ambient Luxury Background Orbs */}
+        <div className="luxury-ambient-bg" aria-hidden="true">
+          <div className="luxury-orb orb-gold-1" />
+          <div className="luxury-orb orb-sapphire-2" />
+          <div className="luxury-orb orb-emerald-3" />
+          <div className="luxury-mesh-overlay" />
+        </div>
 
-      {/* Toast Notifications */}
-      <div className="toast-container" aria-live="polite">
-        {toasts.map((t) => (
-          <div key={t.id} className="toast-message">
-            <CheckCircle2 size={18} style={{ color: 'var(--accent-gold)' }} />
-            <span>{t.message}</span>
-          </div>
-        ))}
-      </div>
+        {/* Toast Notifications */}
+        <div className="toast-container" aria-live="polite">
+          {toasts.map((t) => (
+            <div key={t.id} className="toast-message">
+              <CheckCircle2 size={18} style={{ color: 'var(--accent-gold)' }} />
+              <span>{t.message}</span>
+            </div>
+          ))}
+        </div>
 
-      {/* Navigation */}
-      <Navbar
-        cartCount={totalCartItems}
-        onOpenCart={() => setIsCartOpen(true)}
-        theme={theme}
-        onToggleTheme={() => {
-          const nextTheme = theme === 'luxury-light' ? 'cyber-dark' : 'luxury-light';
-          setTheme(nextTheme);
-          playSound('click');
-          showToast(`Switched to ${nextTheme === 'luxury-light' ? '👑 Luxury Light' : '🌌 Cyber Dark'} Theme`);
-        }}
-        soundEnabled={soundEnabled}
-        onToggleSound={() => {
-          setSoundEnabled(!soundEnabled);
-          showToast(!soundEnabled ? 'Sound FX Enabled 🔊' : 'Sound FX Muted 🔇');
-        }}
-      />
-
-      {/* Main Content */}
-      <main>
-        <Hero theme={theme} onSoundPlay={playSound} />
-        <Pillars />
-        <ProductCatalog
-          onAddToCart={handleAddToCart}
-          wishlist={wishlist}
-          onToggleWishlist={handleToggleWishlist}
-          onSoundPlay={playSound}
+        {/* Navigation */}
+        <Navbar
+          cartCount={totalCartItems}
+          onOpenCart={() => setIsCartOpen(true)}
+          theme={theme}
+          onToggleTheme={() => {
+            const nextTheme = theme === 'luxury-light' ? 'cyber-dark' : 'luxury-light';
+            setTheme(nextTheme);
+            playSound('click');
+            showToast(`Switched to ${nextTheme === 'luxury-light' ? '👑 Luxury Light' : '🌌 Cyber Dark'} Theme`);
+          }}
+          soundEnabled={soundEnabled}
+          onToggleSound={() => {
+            setSoundEnabled(!soundEnabled);
+            showToast(!soundEnabled ? 'Sound FX Enabled 🔊' : 'Sound FX Muted 🔇');
+          }}
         />
-        <VirtualLab onSoundPlay={playSound} onToast={showToast} />
-        <LearningJourney />
-        <InstitutionalSection onToast={showToast} />
-        <Testimonials />
-        <FAQ onSoundPlay={playSound} />
-      </main>
+
+        {/* Main Routing Content */}
+        <Routes>
+          <Route path="/" element={
+            <Home 
+              theme={theme} 
+              playSound={playSound}
+              handleAddToCart={handleAddToCart}
+              wishlist={wishlist}
+              handleToggleWishlist={handleToggleWishlist}
+              showToast={showToast}
+            />
+          } />
+          <Route path="/about" element={<About />} />
+          <Route path="/nep2020" element={<Nep2020 />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
 
       {/* Shopping Cart Drawer */}
       <CartDrawer
@@ -263,5 +271,6 @@ export default function App() {
       {/* Footer */}
       <Footer onToast={showToast} />
     </div>
-  );
+  </BrowserRouter>
+);
 }

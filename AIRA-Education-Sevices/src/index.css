@@ -2,114 +2,209 @@
    AIRA EDUCATION - Luxury Light & Cyber Dark Theme Stylesheet
    ========================================================================== */
 
-:root,
-[data-theme="luxury-light"] {
-  /* Primary Luxury Backgrounds */
-  --bg-primary: #fbf9f4;
-  --bg-secondary: #f4efe4;
-  --bg-tertiary: #ede5d5;
-  --bg-card: rgba(255, 255, 255, 0.82);
-  --bg-card-hover: rgba(255, 255, 255, 0.96);
-  --bg-glass: rgba(251, 249, 244, 0.85);
-
-  /* Luxury Accents */
-  --accent-gold: #d97706;
-  --accent-gold-dark: #b45309;
-  --accent-gold-light: #fbbf24;
-  --accent-gold-glow: rgba(217, 119, 6, 0.35);
-
-  --accent-sapphire: #1e3a8a;
-  --accent-sapphire-light: #2563eb;
-  --accent-azure: #0284c7;
-  --accent-emerald: #059669;
-  --accent-rose: #e11d48;
-  --accent-purple: #7c3aed;
-
-  /* Text Colors */
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
-  --text-gold: #92400e;
-  --text-inverse: #ffffff;
-
-  /* Gradients */
-  --grad-gold: linear-gradient(135deg, #b45309 0%, #d97706 40%, #fbbf24 80%, #f59e0b 100%);
-  --grad-royal: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #d97706 100%);
-  --grad-pearl: linear-gradient(145deg, #ffffff 0%, #f7f4ec 100%);
-  --grad-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 239, 228, 0.6) 100%);
-  --grad-border: linear-gradient(135deg, rgba(217, 119, 6, 0.4), rgba(37, 99, 235, 0.2), rgba(251, 191, 36, 0.5));
-
-  /* Borders & Shadows */
-  --border-subtle: rgba(180, 83, 9, 0.12);
-  --border-active: rgba(217, 119, 6, 0.45);
-  --shadow-sm: 0 4px 12px rgba(180, 83, 9, 0.05);
-  --shadow-md: 0 10px 30px -5px rgba(180, 83, 9, 0.08), 0 6px 16px -6px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 20px 45px -10px rgba(180, 83, 9, 0.12), 0 10px 25px -8px rgba(0, 0, 0, 0.06);
-  --glow-gold: 0 0 25px rgba(217, 119, 6, 0.3);
-
-  /* 3D Scene Background color */
-  --scene-bg: 0xfbf9f4;
-  --three-point-color: 0xd97706;
-}
-
-/* Cyber Dark Theme Mode */
-[data-theme="cyber-dark"] {
-  --bg-primary: #060913;
-  --bg-secondary: #0c1122;
-  --bg-tertiary: #131b33;
-  --bg-card: rgba(15, 23, 42, 0.72);
-  --bg-card-hover: rgba(26, 38, 70, 0.9);
-  --bg-glass: rgba(12, 17, 34, 0.85);
-
-  --accent-gold: #00f2fe;
-  --accent-gold-dark: #0284c7;
-  --accent-gold-light: #38bdf8;
-  --accent-gold-glow: rgba(0, 242, 254, 0.35);
-
-  --accent-sapphire: #6366f1;
-  --accent-sapphire-light: #4facfe;
-  --accent-azure: #00f2fe;
-  --accent-emerald: #10b981;
-  --accent-rose: #ec4899;
-  --accent-purple: #8b5cf6;
-
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --text-gold: #38bdf8;
-  --text-inverse: #030712;
-
-  --grad-gold: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #6366f1 100%);
-  --grad-royal: linear-gradient(135deg, #8b5cf6 0%, #00f2fe 100%);
-  --grad-pearl: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-  --grad-card: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
-  --grad-border: linear-gradient(135deg, rgba(0, 242, 254, 0.4), rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.4));
-
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(0, 242, 254, 0.4);
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 242, 254, 0.15);
-  --glow-gold: 0 0 25px rgba(0, 242, 254, 0.35);
-
-  --scene-bg: 0x060913;
-  --three-point-color: 0x00f2fe;
-}
-
-/* Global Font & Layout Variables */
 :root {
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ==========================================================================
+     AIRA DESIGN SYSTEM TOKENS
+     ========================================================================== */
+  
+  /* Primary */
+  --color-primary-50: #f6f3fc;
+  --color-primary-100: #ede6f9;
+  --color-primary-200: #d5c5f2;
+  --color-primary-300: #b697ec;
+  --color-primary-400: #8b57e5;
+  --color-primary-500: #6c2bd9;
+  --color-primary-600: #5721b6;
+  --color-primary-700: #471a93;
+  --color-primary-800: #361470;
+  --color-primary-900: #2b1551;
+  --color-primary-950: #1c0e35;
+
+  /* Secondary */
+  --color-secondary-50: #f6f7f8;
+  --color-secondary-100: #eeeff2;
+  --color-secondary-200: #d7dbe0;
+  --color-secondary-300: #b9c0ca;
+  --color-secondary-400: #909cac;
+  --color-secondary-500: #6e7d91;
+  --color-secondary-600: #5c697a;
+  --color-secondary-700: #4b5563;
+  --color-secondary-800: #39414b;
+  --color-secondary-900: #2d3239;
+  --color-secondary-950: #1d2125;
+
+  /* Accent */
+  --color-accent-50: #f6f3fc;
+  --color-accent-100: #ede6f9;
+  --color-accent-200: #d5c5f2;
+  --color-accent-300: #b697ec;
+  --color-accent-400: #8b57e5;
+  --color-accent-500: #6c2bd9;
+  --color-accent-600: #5721b6;
+  --color-accent-700: #471a93;
+  --color-accent-800: #361470;
+  --color-accent-900: #2b1551;
+  --color-accent-950: #1c0e35;
+
+  /* Neutral */
+  --color-neutral-50: #ffffff;
+  --color-neutral-100: #f0f0f0;
+  --color-neutral-200: #dbdbdb;
+  --color-neutral-300: #c2c2c2;
+  --color-neutral-400: #9e9e9e;
+  --color-neutral-500: #808080;
+  --color-neutral-600: #6b6b6b;
+  --color-neutral-700: #575757;
+  --color-neutral-800: #424242;
+  --color-neutral-900: #333333;
+  --color-neutral-950: #212121;
+
+  /* Semantic Intents */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Typography - Font Sizes */
+  --font-size-xs: 0.65rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.95rem;
+  --font-size-lg: 1.15rem;
+  --font-size-xl: 1.8rem;
+  --font-size-2xl: 2.2rem;
+  --font-size-3xl: 2.6rem;
+  --font-size-4xl: 3.8rem;
+
+  /* Typography - Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-24: 6rem;
+  --spacing-31: 7.625rem;
+
+  /* Global Font & Layout Variables Mapping */
+  --font-display: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
 
   --container-max: 1300px;
-  --nav-height: 84px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --nav-height: 100px;
+  
+  --radius-none: 0;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 50%;
+  --radius-2xl: 6.25rem;
   --radius-full: 9999px;
+
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
+  --shadow-md: rgba(108, 43, 217, 0.2) 0px 4px 16px 0px;
+  --shadow-lg: rgba(108, 43, 217, 0.35) 0px 6px 24px 0px;
+  --shadow-xl: rgba(0, 0, 0, 0.12) 0px 8px 24px 0px;
+
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root,
+[data-theme="luxury-light"] {
+  /* Primary Backgrounds */
+  --bg-primary: var(--color-neutral-50);
+  --bg-secondary: var(--color-neutral-100);
+  --bg-tertiary: var(--color-neutral-200);
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  /* Accents */
+  --accent-gold: #2563eb;
+  --accent-gold-dark: #1d4ed8;
+  --accent-gold-light: #60a5fa;
+  --accent-gold-glow: rgba(37, 99, 235, 0.35);
+
+  --accent-sapphire: var(--color-secondary-500);
+  --accent-sapphire-light: var(--color-secondary-300);
+  --accent-azure: #0ea5e9;
+  --accent-emerald: var(--color-success);
+  --accent-rose: var(--color-error);
+  --accent-purple: var(--color-primary-600);
+
+  /* Text Colors */
+  --text-main: var(--color-neutral-900);
+  --text-muted: var(--color-neutral-600);
+  --text-dim: var(--color-neutral-400);
+  --text-gold: var(--color-primary-700);
+  --text-inverse: var(--color-neutral-50);
+
+  /* Gradients */
+  --grad-gold: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #60a5fa 100%);
+  --grad-royal: linear-gradient(135deg, var(--color-secondary-700) 0%, var(--color-secondary-500) 50%, #2563eb 100%);
+  --grad-pearl: linear-gradient(145deg, var(--color-neutral-50) 0%, var(--color-neutral-100) 100%);
+  --grad-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.6) 100%);
+  --grad-border: linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(110, 125, 145, 0.2), rgba(96, 165, 250, 0.5));
+
+  /* Borders */
+  --border-subtle: rgba(37, 99, 235, 0.12);
+  --border-active: rgba(37, 99, 235, 0.45);
+  --glow-gold: 0 0 25px rgba(37, 99, 235, 0.3);
+
+  /* 3D Scene Background color */
+  --scene-bg: 0xffffff;
+  --three-point-color: 0x2563eb;
+}
+
+/* Cyber Dark Theme Mode */
+[data-theme="cyber-dark"] {
+  --bg-primary: var(--color-secondary-950);
+  --bg-secondary: var(--color-secondary-900);
+  --bg-tertiary: var(--color-secondary-800);
+  --bg-card: rgba(29, 33, 37, 0.72);
+  --bg-card-hover: rgba(45, 50, 57, 0.9);
+  --bg-glass: rgba(29, 33, 37, 0.85);
+
+  --accent-gold: #38bdf8;
+  --accent-gold-dark: #0284c7;
+  --accent-gold-light: #7dd3fc;
+  --accent-gold-glow: rgba(56, 189, 248, 0.35);
+
+  --accent-sapphire: var(--color-secondary-400);
+  --accent-sapphire-light: var(--color-secondary-200);
+  --accent-azure: #38bdf8;
+  --accent-emerald: var(--color-success);
+  --accent-rose: var(--color-error);
+  --accent-purple: var(--color-primary-500);
+
+  --text-main: var(--color-neutral-50);
+  --text-muted: var(--color-neutral-300);
+  --text-dim: var(--color-neutral-500);
+  --text-gold: var(--color-primary-300);
+  --text-inverse: var(--color-neutral-950);
+
+  --grad-gold: linear-gradient(135deg, #0284c7 0%, #38bdf8 50%, #7dd3fc 100%);
+  --grad-royal: linear-gradient(135deg, var(--color-secondary-400) 0%, #38bdf8 100%);
+  --grad-pearl: linear-gradient(145deg, var(--color-secondary-900) 0%, var(--color-secondary-950) 100%);
+  --grad-card: linear-gradient(145deg, rgba(45, 50, 57, 0.7) 0%, rgba(29, 33, 37, 0.85) 100%);
+  --grad-border: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(144, 156, 172, 0.2), rgba(125, 211, 252, 0.4));
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(56, 189, 248, 0.4);
+  --glow-gold: 0 0 25px rgba(56, 189, 248, 0.35);
+
+  --scene-bg: 0x1d2125;
+  --three-point-color: 0x38bdf8;
 }
 
 /* Base Styles */
@@ -155,7 +250,7 @@ body {
 .orb-gold-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #fbbf24, #d97706);
+  background: radial-gradient(circle, #60a5fa, #2563eb);
   top: -120px;
   left: -150px;
 }
